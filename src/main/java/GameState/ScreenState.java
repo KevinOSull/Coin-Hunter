@@ -1,0 +1,12 @@
+package GameState;
+
+public enum ScreenState {
+    START_MENU,
+    MAIN_MENU_ITEMS_LIST,
+    SET_GRID_SIZE_MENU,
+    SET_DIFFICULTY_MENU,
+    START_GAME,
+    EXIT_GAME,
+    BACK_TO_SELECT_GRID_SIZE_MENU,
+    UNKNOWN_STATE
+}
