@@ -18,7 +18,7 @@ public class Monster extends Entity {
         
     }
 
-    private void move(Board board, Direction playerDirection){
+    public void move(Board board, Direction playerDirection){
 
     }
 
