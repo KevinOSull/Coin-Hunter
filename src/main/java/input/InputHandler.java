@@ -11,9 +11,11 @@ public class InputHandler {
 
     }
 
-    private pollKey
+    private KeyStroke pollKey(){
+        return null;
+    }
 
     private Direction getDirection(KeyStroke key){
-
+        return null;
     }
 }
