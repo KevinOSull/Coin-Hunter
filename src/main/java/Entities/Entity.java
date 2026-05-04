@@ -29,8 +29,17 @@ public abstract class Entity {
         return this.row;
     }
 
-    protected void setPosition(int row,int col){
+    public char getSymbol(){
+        return this.symbol;
+    }
 
+    public void setSymbol(char symbol){
+        this.symbol = symbol;
+    }
+
+    protected void setPosition(int row,int col){
+        this.row = row;
+        this.col = col;
     }
 
     public abstract void interact(GameSession session);

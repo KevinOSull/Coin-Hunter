@@ -10,7 +10,7 @@ public class Monster extends Entity {
     private MovementStrategy movementStrategy;
 
     public Monster(){
-
+        this.setSymbol('M');
     }
 
     @Override

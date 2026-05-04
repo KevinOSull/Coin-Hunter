@@ -6,7 +6,7 @@ public class Coin extends Entity{
 
 
     public Coin(){
-
+        this.setSymbol('C');
     }
 
 

@@ -10,7 +10,7 @@ public class Player extends Entity {
     private Direction direction;
 
     public Player(){
-
+        this.setSymbol('P');
     }
 
     @Override
