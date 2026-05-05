@@ -18,7 +18,7 @@ public class Menu {
 
     }
 
-    private int getSelectedItem(){
+    public int getSelectedItem(){
         return 0;
     }
 
