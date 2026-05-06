@@ -1,4 +1,5 @@
 package game;
+import GameState.GameStatus;
 import GameState.ScreenState;
 import board.Board;
 import com.googlecode.lanterna.SGR;
@@ -26,18 +27,34 @@ public class Game {
     private GameSession session;
     private MenuManager menuManager;
     private ScreenState state;
-    private boolean isRunning = false;
-
+    private boolean isGameRunning = true;
+    private GameStatus gameStatus;
+    private ScreenState screenState;
     public Game(){
 
     }
 
 
-    private void start(){
-
+    public void startGame()  {
+        try {
+            createScreen();
+            gameLoop();
+            screen.stopScreen();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     private void gameLoop(){
+        gameStatus = GameStatus.GAME_IN_PROGRESS;
+        screenState = ScreenState.START_MENU;
+        while(isGameRunning){
+            screen.clear();
+            render();
+        }
+    }
+
+    private void createScreen(){
 
     }
 
