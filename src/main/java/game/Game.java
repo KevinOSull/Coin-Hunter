@@ -17,6 +17,7 @@ import render.Renderer;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Random;
 public class Game {
 
@@ -26,10 +27,10 @@ public class Game {
     private InputHandler inputHandler;
     private GameSession session;
     private MenuManager menuManager;
-    private ScreenState state;
     private boolean isGameRunning = true;
     private GameStatus gameStatus;
     private ScreenState screenState;
+    //private Map<ScreenState,>
     public Game(){
 
     }
@@ -42,16 +43,32 @@ public class Game {
             screen.stopScreen();
         }catch(IOException e){
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    private void gameLoop(){
+    private void gameLoop() throws IOException, InterruptedException {
         gameStatus = GameStatus.GAME_IN_PROGRESS;
         screenState = ScreenState.START_MENU;
         while(isGameRunning){
             screen.clear();
             render();
+            if(gameStatus == GameStatus.GAME_OVER){
+                screen.refresh();
+                Thread.sleep(3000);
+                screenState = ScreenState.START_MENU;
+                resetGame();
+
+            }
+            screen.refresh();
+            Thread.sleep(16);
+
         }
+    }
+
+    private void screenRouting(){
+
     }
 
     private void createScreen(){
