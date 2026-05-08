@@ -71,8 +71,12 @@ public class Game {
 
     }
 
-    private void createScreen(){
-
+    private void createScreen() throws IOException {
+        DefaultTerminalFactory factory = new DefaultTerminalFactory();
+        factory.setInitialTerminalSize(new TerminalSize(100,100));
+        screen = factory.createScreen();
+        screen.startScreen();
+        screen.setCursorPosition(null);
     }
 
     private void update(){
