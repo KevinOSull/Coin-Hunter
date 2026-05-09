@@ -9,6 +9,7 @@ import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import game.GameSession;
+import headers.Headers;
 import menu.Menu;
 
 import java.io.IOException;
@@ -16,6 +17,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 public class Renderer {
+    private TerminalSize size;
+    private  int width;
+    private int height;
+    private  int x;
+    private  int y;
 
     public Renderer(){
 
@@ -43,6 +49,25 @@ public class Renderer {
 
     private void drawWinner(String message){
 
+    }
+
+    private int getWidth(){
+        return size.getColumns();
+    }
+
+    private int getHeight(){
+        return size.getRows();
+    }
+
+    private int calculateHeaderX(){
+        int x = (width - Headers.GAME_HEADER_TITLE[0].length())/2;
+        return Math.max(0,x);
+    }
+
+    private int calculateHeaderY(){
+        double topFraction = 0.16;
+        int y = (int)(height*topFraction);
+        return Math.max(0,y);
     }
 
 }
