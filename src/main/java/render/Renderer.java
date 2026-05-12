@@ -39,8 +39,24 @@ public class Renderer {
 
     }
 
-    private void drawMenu(Menu menu){
+    private void drawMenu(Menu menu,Screen screen){
+        TextGraphics tg = screen.newTextGraphics();
+        int startY = y + menu.getTitle().length()+2;
+        for(int i = 0; i < menu.getItems().length; i++){
+            String item = menu.getItems()[i];
+            int menuX = (width-item.length())/2;
+            int menuY = startY + i;
+            if(i == menu.getSelectedIndex()){
+                tg.setForegroundColor(TextColor.ANSI.BLACK);
+                tg.setBackgroundColor(TextColor.ANSI.WHITE);
+                tg.putString(menuX, menuY, item);
+                tg.setForegroundColor(TextColor.ANSI.DEFAULT);
+                tg.setBackgroundColor(TextColor.ANSI.DEFAULT);
+            }else{
+                tg.putString(menuX,menuY,item);
+            }
 
+        }
     }
 
     private void drawScores(GameSession gameSession){
