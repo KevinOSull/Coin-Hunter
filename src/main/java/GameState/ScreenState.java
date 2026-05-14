@@ -4,6 +4,7 @@ public enum ScreenState {
     START_MENU,
     MAIN_MENU_ITEMS_LIST,
     SET_GRID_SIZE_MENU,
+    USER_SET_GRID_SIZE,
     SET_DIFFICULTY_MENU,
     START_GAME,
     EXIT_GAME,
